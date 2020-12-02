@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.App {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+.column {
+    margin: 80px 0 60px;
+}
+.column.left {
+    margin-left: 120px;
+}
+h2 {
+    font-size: 24px;
+    line-height: 28px;
+    color: #2B2B2B;
+    margin: 0;
+}
+
+h4 {
+    font-size: 16px;
+    line-height: 18px;
+    color: #2B2B2B;
+    margin: 0;
+}
+
+.upload {
+    display: block;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #A3A3A3;
+    margin: 32px 0 8px;
+    padding-bottom: 0;
+}
+
+input:active, input:focus, button:active, button:focus {
+    outline: none;
+}
+
+.text {
+    width: 270px;
+    height: 36px;
+    border: 1px solid #CED4DA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #212529;
+    padding: 6px 12px;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+}
+
+.color {
+    width: 70px;
+    height: 36px;
+    margin: 0 8px 8px 0;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.color:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.orange {
+    background: linear-gradient(180deg, #FFDA9E 0%, #F2AD45 100%);
+}
+.blue {
+    background: linear-gradient(180deg, #CFEDFB 0%, #75BDE1 100%);
+}
+.green {
+    background: linear-gradient(180deg, #E5FDA7 0%, #ABD056 100%);
+}
+.pink {
+    background: linear-gradient(180deg, #FAE7DF 0%, #D8A290 100%);
+}
+.brown {
+    background: linear-gradient(180deg, #F2EADE 0%, #D8B583 100%);
+}
+.purple {
+    background: linear-gradient(180deg, #EDDFF7 0%, #C9ADDE 100%);
+}
+
+.link {
+    width: 270px;
+    height: 36px;
+    border: 1px solid #CED4DA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #212529;
+    padding: 6px 12px;
+}
+
+.preview {
+    margin: 47px 0;
+    width: 320px;
+    height: 425px;
+    /*background: linear-gradient(180deg, #EDDFF7 0%, #C9ADDE 100%);*/
+    border-radius: 12px;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    cursor: pointer;
+}
+
+.image {
+    width: 250px;
+    height: 250px;
+    margin-left: 70px;
+    padding-top: 55px;
+    justify-content: left;
+    overflow: hidden;
+}
+img {
+    min-height: 120px;
+    max-height: 195px;
+}
+.context {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 36px;
+    color: #FFFFFF;
+    margin: 24px;
+    padding-top: 50px;
+    width: 250px;
+    height: 110px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+
+}
+
+.export {
+    width: 73px;
+    height: 36px;
+    border: 1px solid #49A9F8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 12px 8px 0 0;
+    color: #49A9F8;
+    background-color: #FFFFFF;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+}
+
+.export:hover {
+    background: #49A9F8;
+    color: #FFFFFF;
+}
+
+
+
+
+
+
+
