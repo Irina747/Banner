@@ -25,7 +25,6 @@ class App extends Component {
         backgroundClass: 'preview purple',
         file: '',
         imagePreviewUrl: ''
-
     }
 
     constructor(props) {
@@ -128,10 +127,13 @@ class App extends Component {
 
         let json = JSON.stringify(jsonObject);
 
-        document.addEventListener('copy', (event) => {
-            event.clipboardData.setData('text/plain', json);
-            event.preventDefault();
-        });
+        let inputJSON = document.createElement("input");
+        document.body.appendChild(inputJSON);
+        inputJSON.setAttribute("id", "input_id")
+        document.getElementById("input_id").value = json;
+        inputJSON.select();
+        document.execCommand("copy");
+        document.body.removeChild(inputJSON);
 
         alert("JSON скопирован в буфер обмена");
     }
@@ -189,13 +191,17 @@ class App extends Component {
                     <React.Fragment>
                         <button className="export"
                                 onClick={() => exportComponentAsPNG(this.componentRef)}
-                        >PNG</button>
-                        <button className="export"
+                        >PNG
+                        </button>
+                        <button className="export json"
                                 onClick={this.handleJSON}
-                        >JSON</button>
+                                // onClick={this.copyJson}
+                        >JSON
+                        </button>
                         <button className="export"
                                 onClick={this.handleJSX}
-                        >JSX</button>
+                        >JSX
+                        </button>
                     </React.Fragment>
 
                 </div>
