@@ -1,6 +1,6 @@
-import React from "react";
-import {Component} from "react";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import ReactDOMServer from 'react-dom/server';
 import './index.css';
 import Export from "./Components/Export";
 import Loading from "./Components/Loading";
@@ -129,8 +129,8 @@ class App extends Component {
 
         let inputJSON = document.createElement("input");
         document.body.appendChild(inputJSON);
-        inputJSON.setAttribute("id", "input_id")
-        document.getElementById("input_id").value = json;
+        inputJSON.setAttribute("id", "inputJSON_id")
+        document.getElementById("inputJSON_id").value = json;
         inputJSON.select();
         document.execCommand("copy");
         document.body.removeChild(inputJSON);
@@ -138,7 +138,31 @@ class App extends Component {
         alert("JSON скопирован в буфер обмена");
     }
 
-    handleJSX = () => {
+    handleHTML = () => {
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = <Image/>;
+        if (imagePreviewUrl) {
+            $imagePreview = (<img src={imagePreviewUrl} alt={"banner"}/>);
+        }
+
+        let html = ReactDOMServer.renderToString(
+            <div className={this.state.backgroundClass}>
+                <div className="image">
+                    {$imagePreview}
+                </div>
+                <p className="context">{this.state.content}</p>
+            </div>
+        )
+
+        let inputHTML = document.createElement("input");
+        document.body.appendChild(inputHTML);
+        inputHTML.setAttribute("id", "inputHTML_id")
+        document.getElementById("inputHTML_id").value = html;
+        inputHTML.select();
+        document.execCommand("copy");
+        document.body.removeChild(inputHTML);
+
+        alert("HTML скопирован в буфер обмена");
 
     }
 
@@ -163,12 +187,12 @@ class App extends Component {
 
                     <Label text={'Заливка градиентом'}/>
 
-                    <button className='color orange' onClick={this.onChangeOrange}></button>
-                    <button className='color blue' onClick={this.onChangeBlue}></button>
-                    <button className='color green' onClick={this.onChangeGreen}></button>
-                    <button className='color pink' onClick={this.onChangePink}></button>
-                    <button className='color brown' onClick={this.onChangeBrown}></button>
-                    <button className='color purple' onClick={this.onChangePurple}></button>
+                    <button className='color orange' onClick={this.onChangeOrange}> </button>
+                    <button className='color blue' onClick={this.onChangeBlue}> </button>
+                    <button className='color green' onClick={this.onChangeGreen}> </button>
+                    <button className='color pink' onClick={this.onChangePink}> </button>
+                    <button className='color brown' onClick={this.onChangeBrown}> </button>
+                    <button className='color purple' onClick={this.onChangePurple}> </button>
 
                     <Label text={'Ссылка'}/>
                     <Input placeholder={this.state.link} onChange={this.handleLink}/>
@@ -190,18 +214,9 @@ class App extends Component {
 
                     <React.Fragment>
                         <button className="export"
-                                onClick={() => exportComponentAsPNG(this.componentRef)}
-                        >PNG
-                        </button>
-                        <button className="export json"
-                                onClick={this.handleJSON}
-                                // onClick={this.copyJson}
-                        >JSON
-                        </button>
-                        <button className="export"
-                                onClick={this.handleJSX}
-                        >JSX
-                        </button>
+                                onClick={() => exportComponentAsPNG(this.componentRef)}>PNG</button>
+                        <button className="export" onClick={this.handleJSON}>JSON</button>
+                        <button className="export" onClick={this.handleHTML}>HTML</button>
                     </React.Fragment>
 
                 </div>
@@ -209,7 +224,6 @@ class App extends Component {
         );
     }
 }
-
 
 export default App;
 
